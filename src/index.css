@@ -1,0 +1,257 @@
+/*
+Colors:
+- #bdfffa
+*/
+
+body {
+  font-family: "Roboto Slab", serif;
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  background-color: #3bc9db;
+}
+
+.extend {
+  height: 100%;
+}
+.section {
+  position: relative;
+}
+.loader-container {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+}
+
+.dots-3 {
+  width: 60px;
+  aspect-ratio: 2;
+  --_g: no-repeat radial-gradient(circle closest-side, #fff 90%, #0000);
+  background: var(--_g) 0% 50%, var(--_g) 50% 50%, var(--_g) 100% 50%;
+  background-size: calc(100% / 3) 50%;
+  animation: d3 1s infinite linear;
+}
+@keyframes d3 {
+  20% {
+    background-position: 0% 0%, 50% 50%, 100% 50%;
+  }
+  40% {
+    background-position: 0% 100%, 50% 0%, 100% 50%;
+  }
+  60% {
+    background-position: 0% 50%, 50% 100%, 100% 0%;
+  }
+  80% {
+    background-position: 0% 50%, 50% 50%, 100% 100%;
+  }
+}
+.header {
+  margin: 0 auto;
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: 0.1rem;
+  background-color: #15aabf;
+  max-width: 24rem;
+  box-shadow: 0px 5px 5px #0b7285;
+  border-radius: 0 0 12px 12px;
+}
+
+.header form {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1.25rem 0.3rem;
+}
+
+.form-input {
+  background-color: #22b8cf;
+  width: 7rem;
+  border-radius: 1.5rem;
+  height: 1.5rem;
+  border: 0;
+  padding: 0.5rem;
+}
+
+.form-input::placeholder {
+  text-align: center;
+  color: #444;
+}
+
+.form-input:focus {
+  outline: none;
+}
+
+.btn-search {
+  text-align: center;
+  color: #000;
+  font-weight: 700;
+  width: 5rem;
+  background-color: #38d9a9;
+  border: 0;
+  border-radius: 15px;
+  letter-spacing: 0.1rem;
+  padding: 0.5rem;
+}
+
+/* Card today styling */
+.card-item {
+  font-size: 2.5rem;
+  line-height: 1.5;
+  font-weight: 400;
+  width: 100%;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.location {
+  font-size: 2rem;
+  font-weight: 450;
+  letter-spacing: 0.2rem;
+  text-align: center;
+}
+.temp {
+  font-size: 1.5rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.icon {
+  width: 3rem;
+}
+
+.type {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 0;
+}
+
+.type-label {
+  letter-spacing: 0.1rem;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+/* Styling of small cards */
+.container {
+  margin: 0 auto;
+  max-width: 24rem;
+  display: flex;
+  flex-direction: column;
+  background-color: #15aabf;
+  overflow: hidden;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+.small-item {
+  background-color: #15aabf;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 1.2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #0b7285;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.small-item:nth-last-child(1) {
+  border-bottom: 0;
+}
+
+.day-name {
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.info {
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.degres {
+  font-size: 1.2rem;
+  font-weight: 550;
+}
+
+.forecast {
+  margin: 1rem 1rem 0rem 1rem;
+  padding-left: 0.2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #0b7285;
+}
+
+/* Styling the error */
+.error-msg {
+  margin: 0 auto;
+  max-width: 20rem;
+  background-color: #c37878;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+@media only screen and (min-width: 28rem) {
+  .header {
+    max-width: 30rem;
+  }
+  .forecast {
+    padding-left: 1.2rem;
+  }
+  .container {
+    max-width: 30rem;
+  }
+}
+
+@media only screen and (min-width: 38rem) {
+  .header {
+    max-width: 35rem;
+  }
+
+  .form-input {
+    width: 10rem;
+  }
+  .forecast {
+    padding-left: 2rem;
+  }
+  .container {
+    max-width: 35rem;
+  }
+}
+
+@media only screen and (min-width: 57rem) {
+  .header {
+    max-width: 40rem;
+  }
+
+  .form-input {
+    width: 10rem;
+  }
+
+  .forecast {
+    padding-left: 2.8rem;
+  }
+
+  .container {
+    max-width: 40rem;
+  }
+}
