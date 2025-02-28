@@ -21,8 +21,8 @@ function Card() {
       </div>
       <div className="type-label">{description}</div>
       <div className="temp">
-        <span>H: {temp.max} &deg;</span>
-        <span>L: {temp.min} &deg;</span>
+        <span>H: {temp.max}&deg;</span>
+        <span>L: {temp.min}&deg;</span>
       </div>
     </div>
   );

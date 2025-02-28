@@ -32,7 +32,6 @@ export function getNumOfDay(day) {
   let num = 0;
   const date = new Date();
   const value = date.getDay() + day + 1;
-  console.log(value);
   switch (true) {
     case value > 13:
       return (num = value - 14);
@@ -61,7 +60,12 @@ export async function getCurrentForecast(lat, lon) {
 export async function getCurrentForecast(lat, lon) {
   const res = await fetch(`${URL}lat=${lat}&lon=${lon}&appid=${APIKEY}`);
   const data = await res.json();
-  const obj = { location: data.city.name, list: data.list.slice(0, 14) };
+
+  const obj = {
+    location: data.city.name,
+    wind: data.list[0].wind,
+    list: data.list.slice(0, 14),
+  };
   // console.log(data);
   return obj;
 }

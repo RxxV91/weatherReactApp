@@ -10,11 +10,13 @@ function SmallCard({ data, day }) {
     <div className="small-item">
       <span className="day-name"> {weekday[numDayWeek]}</span>
       <span className="info">
-        <img
-          src={`https://openweathermap.org/img/wn/${data.weather[0].icon}.png`}
-          alt={data.weather[0].description}
-          className="icon"
-        />
+        <span className="icon-container">
+          <img
+            src={`https://openweathermap.org/img/wn/${data.weather[0].icon}.png`}
+            alt={data.weather[0].description}
+            className="icon"
+          />
+        </span>
         <span className="degres">
           {ConvertToCelsius(data.main.temp_min)}
           <sup>&deg;</sup> /&nbsp;
@@ -23,7 +25,7 @@ function SmallCard({ data, day }) {
         </span>
       </span>
 
-      <span>{data.weather[0].description}</span>
+      <span className="card-desc">{data.weather[0].description}</span>
     </div>
   );
 }

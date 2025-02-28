@@ -33,6 +33,7 @@ const initialState = {
   status: "idle",
   location: "",
   temp: {},
+  wind: {},
   description: "",
   forecast: [],
   image: "https://openweathermap.org/img/wn/02n.png",
@@ -50,15 +51,19 @@ const dateSlice = createSlice({
       })
       .addCase(weatherData.fulfilled, (state, action) => {
         //for current day only
-        console.log(action.payload.list[0].main);
+
         state.status = "idel";
         state.location = action.payload.location;
-        console.log(state.location);
+
         state.temp = {
           main: ConvertToCelsius(action.payload.list[0].main.temp),
           min: ConvertToCelsius(action.payload.list[0].main.temp_min),
           max: ConvertToCelsius(action.payload.list[0].main.temp_max),
+          feels: ConvertToCelsius(action.payload.list[0].main.feels_like),
         };
+
+        state.wind = action.payload.list[0].wind;
+
         state.description =
           String(action.payload.list[0].weather[0].description)
             .charAt(0)
@@ -68,7 +73,7 @@ const dateSlice = createSlice({
 
         //  forcast
         action.payload.list.shift();
-        console.log(action.payload.list);
+        // console.log(action.payload.list);
         state.forecast = action.payload.list;
       })
       .addCase(weatherData.rejected, (state, action) => {
